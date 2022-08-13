@@ -1,12 +1,3 @@
-// Daniel Shiffman
-// http://youtube.com/thecodingtrain
-// http://codingtra.in
-
-// Coding Challenge #112: 3D Rendering with Rotation and Projection
-// https://youtu.be/p4Iz0XJY-Qk
-
-// Matrix Multiplication
-// https://youtu.be/tzsgS19RRc8
 
 float[][] vecToMatrix(PVector v) {
   float[][] m = new float[3][1];

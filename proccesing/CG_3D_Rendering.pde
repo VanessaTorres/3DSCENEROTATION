@@ -1,10 +1,3 @@
-// Daniel Shiffman
-// http://youtube.com/thecodingtrain
-// http://codingtra.in
-
-// Coding Challenge #112: 3D Rendering with Rotation and Projection
-// https://youtu.be/p4Iz0XJY-Qk
-
 float angle = 0;
 
 PVector[] points = new PVector[8];
@@ -15,7 +8,7 @@ float[][] projection = {
 };
 
 void setup() {
-  size(600, 400);
+  size(600, 400,P2D);
 
   points[0] = new PVector(-0.5, -0.5, -0.5);
   points[1] = new PVector(0.5, -0.5, -0.5);
@@ -57,6 +50,15 @@ void draw() {
     PVector rotated = matmul(rotationY, v);
     rotated = matmul(rotationX, rotated);
     rotated = matmul(rotationZ, rotated);
+    
+    float distance = 2;
+    float z = 1/(distance - rotated.z);
+    
+    float[][] projection = {
+      {z, 0, 0},
+      {0, z, 0}
+    };
+    
     PVector projected2d = matmul(projection, rotated);
     projected2d.mult(200);
     projected[index] = projected2d;
